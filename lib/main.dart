@@ -32,41 +32,26 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: const CustomizedAppBar(),
-        body: SafeArea(
-          child: Container(
-            child: Column(
-              children: [
-                CustomizedButton(
-                    backgroundColor: Colors.greenAccent[100],
-                    borderColor: Colors.transparent,
-                    textColor: Colors.green[800],
-                    xSize: 115,
-                    ySize: 32,
-                    text: 'Hola')
-              ],
-            ),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: const CustomizedNavigationBar()
+      ),
+      body: SafeArea(
+        child: Container(
+          child: Column(
+            children: [
+              CustomizedButton(
+                  backgroundColor: Colors.greenAccent[100],
+                  borderColor: Colors.transparent,
+                  textColor: Colors.green[800],
+                  xSize: 115,
+                  ySize: 32,
+                  text: 'Hola')
+            ],
           ),
-        )
+        ),
+      ),
+
     );
   }
 }
-
-/*
-AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        leading: Text(
-          "squid",
-          style: GoogleFonts.karla(
-            color: Colors.black,
-            fontSize: 24
-          ),
-        ),
-        actions: const [
-          Padding(
-            padding: EdgeInsets.only(right: 2.0),
-            child: Icon(Icons.settings, color: Colors.black,),
-          )
-        ],
-      ),
- */
