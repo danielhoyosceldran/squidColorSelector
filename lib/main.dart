@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import './widgets/app_buttons.dart';
 import './widgets/app_bar.dart';
 
@@ -29,15 +30,18 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: const CustomizedAppBar(),
         body: SafeArea(
           child: Container(
             child: Column(
               children: [
-                CustomizedButton(backgroundColor: Colors.white,
-                    borderColor: Colors.black,
-                    textColor: Colors.black,
-                    xSize: 60,
-                    ySize: 30,
+                CustomizedButton(
+                    backgroundColor: Colors.greenAccent[100],
+                    borderColor: Colors.transparent,
+                    textColor: Colors.green[800],
+                    xSize: 115,
+                    ySize: 32,
                     text: 'Hola')
               ],
             ),
@@ -46,3 +50,23 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+
+/*
+AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        leading: Text(
+          "squid",
+          style: GoogleFonts.karla(
+            color: Colors.black,
+            fontSize: 24
+          ),
+        ),
+        actions: const [
+          Padding(
+            padding: EdgeInsets.only(right: 2.0),
+            child: Icon(Icons.settings, color: Colors.black,),
+          )
+        ],
+      ),
+ */
