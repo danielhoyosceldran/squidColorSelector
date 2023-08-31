@@ -1,3 +1,4 @@
+import 'package:color_selector/pages/baseStructure.dart';
 import 'package:flutter/material.dart';
 import './pages/homePage.dart';
 import './pages/settingsPage.dart';
@@ -15,9 +16,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        home: MyHomePage(),
+        home: const MyHomePage(),
         debugShowCheckedModeBanner: false,
-      routes: {
+        routes: {
           '/homePage': (context) => const MyHomePage(),
           '/settingsPage': (context) => const SettingsPage(),
           '/favoritesPage': (context) => const FavoritesPage(),

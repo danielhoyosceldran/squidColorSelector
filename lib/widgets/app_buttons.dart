@@ -17,15 +17,15 @@ class CustomizedButton extends StatefulWidget {
   String? svgCurrentIcon;
 
   CustomizedButton({Key? key,
-    required this.backgroundColor,
+    this.backgroundColor = Colors.transparent,
     this.borderColor,
     this.textColor,
     this.text,
     this.icon,
     this.svgIcon,
     this.svgPressedIcon,
-    required this.xSize,
-    required this.ySize,
+    this.xSize = 22,
+    this.ySize = 22,
     this.withPressedIcon,
     this.destination,
     this.withSvgPressedIcon = false,
