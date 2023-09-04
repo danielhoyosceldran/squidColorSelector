@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -11,9 +10,9 @@ class CustomizedAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.white,
-      height: 100,
+      height: 90,
       child: Padding(
-        padding: const EdgeInsets.only(left: 20, top: 35, right: 20),
+        padding: const EdgeInsets.only(left: 20, top: 30, right: 20),
         child: Row(
           children: [
             Padding(
@@ -49,7 +48,11 @@ class CustomizedAppBar extends StatelessWidget implements PreferredSizeWidget {
 }
 
 class CustomizedNavigationBar extends StatefulWidget {
-  const CustomizedNavigationBar({Key? key}) : super(key: key);
+  final Function(int) updateIndex;
+  final int currentIndex;
+  final int numberOfIcons = 5;
+  const CustomizedNavigationBar({Key? key, required this.updateIndex, required this.currentIndex})
+      : super(key: key);
 
   @override
   State<CustomizedNavigationBar> createState() =>
@@ -72,45 +75,50 @@ class _CustomizedNavigationBarState extends State<CustomizedNavigationBar> {
                 offset: const Offset(0, 2.0)),
           ],
         ),
-        child: Padding(
-          padding: const EdgeInsets.only(left: 22, right: 22),
-          child: Row(
-            children: [
-              SvgPicture.asset('lib/images/squid_empty.svg', height: 22),
-              const Spacer(),
-              CustomizedButton(
-                  destination: '/palettesPage',
-                  withSvgIcon: true,
-                  withSvgPressedIcon: true,
-                  withDestination: true,
-                  svgIcon: 'lib/images/palette_empty.svg',
-                  svgPressedIcon: 'lib/images/palette_full.svg'),
-              const Spacer(),
-              CustomizedButton(
-                  destination: '/createPage',
-                  withSvgIcon: true,
-                  withSvgPressedIcon: true,
-                  withDestination: true,
-                  svgIcon: 'lib/images/create_empty.svg',
-                  svgPressedIcon: 'lib/images/create_full.svg'),
-              const Spacer(),
-              CustomizedButton(
-                  destination: '/profilePage',
-                  withSvgIcon: true,
-                  withSvgPressedIcon: true,
-                  withDestination: true,
-                  svgIcon: 'lib/images/profile_empty.svg',
-                  svgPressedIcon: 'lib/images/profile_full.svg'),
-              const Spacer(),
-              CustomizedButton(
-                  destination: '/favoritesPage',
-                  withSvgIcon: true,
-                  withSvgPressedIcon: true,
-                  withDestination: true,
-                  svgIcon: 'lib/images/favorite_empty.svg',
-                  svgPressedIcon: 'lib/images/favorite_full.svg'),
-            ],
-          ),
-        ));
+        child: Row(
+          children: [
+            AppBarButtons(
+              svgIcon: 'lib/images/squid_empty.svg',
+              size: 22,
+              numberOfIcons: widget.numberOfIcons,
+            pressedAction: false),
+            const Spacer(),
+            AppBarButtons(
+                svgIcon: 'lib/images/palette_empty.svg',
+                svgPressedIcon: 'lib/images/palette_full.svg',
+                size: 22,
+                updateIndex: widget.updateIndex,
+                newIndex: 0,
+                currentIndex: widget.currentIndex,
+            numberOfIcons: widget.numberOfIcons,),
+            const Spacer(),
+            AppBarButtons(
+                svgIcon: 'lib/images/create_empty.svg',
+                svgPressedIcon: 'lib/images/create_full.svg',
+                size: 22,
+                updateIndex: widget.updateIndex,
+                newIndex: 1,
+                currentIndex: widget.currentIndex,
+            numberOfIcons: widget.numberOfIcons,),
+            const Spacer(),
+            AppBarButtons(
+                svgIcon: 'lib/images/profile_empty.svg',
+                svgPressedIcon: 'lib/images/profile_full.svg',
+                size: 22,
+                updateIndex: widget.updateIndex,
+                newIndex: 2,
+                currentIndex: widget.currentIndex,
+            numberOfIcons: widget.numberOfIcons,),
+            const Spacer(),
+            AppBarButtons(
+                svgIcon: 'lib/images/favorite_empty.svg',
+                svgPressedIcon: 'lib/images/favorite_full.svg',
+                size: 22,
+                updateIndex: widget.updateIndex,
+                newIndex: 3,
+                currentIndex: widget.currentIndex,
+            numberOfIcons: widget.numberOfIcons,),
+          ],
+        ),);
   }
 }
